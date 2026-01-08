@@ -198,7 +198,7 @@ export default function Home() {
 
       // Сортировка по приоритету на клиенте (high > medium > low)
       if (sortBy === 'priority') {
-        const priorityOrder = { high: 3, medium: 2, low: 1 };
+        const priorityOrder: Record<Priority, number> = { high: 3, medium: 2, low: 1 };
         transformedTasks = transformedTasks.sort((a, b) => {
           return priorityOrder[b.priority] - priorityOrder[a.priority];
         });
