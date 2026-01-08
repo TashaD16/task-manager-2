@@ -79,7 +79,6 @@ export default function Home() {
         
         if (errorCode === 'PGRST116' || errorMessage.includes('relation') || errorMessage.includes('does not exist')) {
           console.warn('Таблица "plans" не найдена. Показываю пустой список.');
-          // Не показываем alert, просто устанавливаем пустой массив
           setPlans([]);
           setLoading(false);
           return;
@@ -113,7 +112,6 @@ export default function Home() {
 
           if (tasksError) {
             console.warn(`Error loading tasks for plan ${plan.id}:`, tasksError);
-            // Продолжаем работу даже если есть ошибка загрузки задач
             return {
               ...plan,
               tasks_count: 0,
@@ -140,8 +138,6 @@ export default function Home() {
       setPlans(plansWithStats);
     } catch (error: any) {
       console.error('Error loading plans:', error);
-      const errorMessage = error?.message || error?.toString() || 'Неизвестная ошибка';
-      console.error(`Ошибка при загрузке планов: ${errorMessage}`);
       setPlans([]);
     } finally {
       setLoading(false);
