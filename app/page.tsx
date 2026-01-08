@@ -188,7 +188,7 @@ export default function Home() {
       if (error) throw error;
 
       // Преобразуем данные для соответствия типу Task
-      let transformedTasks = (data || []).map((task: any) => ({
+      let transformedTasks: Task[] = (data || []).map((task: any) => ({
         ...task,
         category: task.category ? {
           name: task.category.name,
