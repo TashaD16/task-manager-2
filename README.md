@@ -1,0 +1,74 @@
+# Task Manager
+
+Таск-менеджер на Next.js + Supabase с поддержкой категорий, приоритетов и фильтрации.
+
+## Технологии
+
+- **Next.js 16** - React фреймворк с App Router
+- **TypeScript** - типизация
+- **Tailwind CSS** - стилизация
+- **Supabase** - база данных и backend
+
+## Установка
+
+1. Установите зависимости:
+```bash
+npm install
+```
+
+2. Создайте файл `.env.local` в корне проекта:
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+3. Настройте базу данных в Supabase:
+   - Откройте SQL Editor в Supabase Dashboard
+   - Выполните SQL скрипт из файла `database.sql`
+
+4. Запустите проект:
+```bash
+npm run dev
+```
+
+Откройте [http://localhost:3000](http://localhost:3000) в браузере.
+
+## Структура проекта
+
+```
+app/
+├── components/          # React компоненты
+│   ├── TaskCard.tsx    # Карточка задачи
+│   ├── TaskList.tsx    # Список задач
+│   ├── TaskForm.tsx    # Форма создания/редактирования
+│   ├── FilterBar.tsx   # Панель фильтров
+│   ├── PriorityBadge.tsx
+│   ├── CategoryBadge.tsx
+│   ├── CategorySelect.tsx
+│   └── CategoryFilter.tsx
+├── lib/
+│   └── supabase.ts     # Supabase клиент
+├── types/
+│   ├── task.ts         # Типы для задач
+│   └── category.ts     # Типы для категорий
+├── page.tsx            # Главная страница
+└── layout.tsx          # Layout приложения
+```
+
+## Функциональность
+
+- ✅ Создание, редактирование и удаление задач
+- ✅ Отметка задач как выполненных
+- ✅ Категории с цветовой кодировкой
+- ✅ Приоритеты (низкий, средний, высокий)
+- ✅ Фильтрация по категории, приоритету и статусу
+- ✅ Сортировка по дате создания и приоритету
+- ✅ Красивый современный UI
+
+## База данных
+
+Проект использует две таблицы:
+- `categories` - категории задач
+- `tasks` - задачи с связью к категориям
+
+Подробности в файле `database.sql`.
